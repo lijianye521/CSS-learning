@@ -8,7 +8,7 @@ section header footer nav article aside main
 
 ## 第二章 添加样式
 
-### 2.1CSS选择符
+### 2.1CSS选择器
 
 类型选择符用于选择特定类型的元素，比如段落或标题
 
@@ -72,7 +72,7 @@ color: blueviolet;
 </html>
 ```
 
-#### 2.1.1子选择符与同辈选择符
+#### 2.1.1子选择器与同辈选择器
 
 子选择符只选择一个元素的直接后代，也就是子元素。
 
@@ -136,7 +136,7 @@ h2 ~ p {
 }
 ```
 
-#### 2.1.2 通用选择符
+#### 2.1.2 通用选择器
 
 通用选择符可以匹配任何元素。通用选择符使用星号*来表示，我们可以使用通用选择符来删除所有元素默认的内外边距。
 
@@ -147,3 +147,51 @@ h2 ~ p {
 }
 ```
 
+#### 2.1.3属性选择器
+
+属性选择器基于元素是否有某个属性或者是否有某个值来选择元素。
+
+#### 2.1.4伪元素
+
+我们想选择的页面区域不是通过元素来表示的，而我们也不想为此给页面添加额外标记。css为这种情况提供了一种特殊选择器，伪元素。
+
+::first-letter 选择一段文本的第一个字符
+
+::first-line 选择一段文本的第一行
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .chapter::before{
+            content:'”';
+            font-size:3em;
+        }
+        .chapter p::first-letter{
+            float: left;
+            font-size: 3em;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .chapter::first-line{
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            text-transform: uppercase;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>A Study In Scarlet</h1>
+    <section class="chapter">
+        <p>
+            In the year 1878 I took my degree of Doctor of Medicine of the University of London,and proceeded 
+            to Netley to go throuogh thr course prescribed for surgeons in the army.Having completed
+            my studies there, I was duly attached to the Fifth Northumberland Fusiliers as Assistant Surgeon.
+        </p>
+    </section>
+</body>
+</html>
+```
