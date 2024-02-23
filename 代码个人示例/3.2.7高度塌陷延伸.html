@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Height Collapse Example</title>
+<style>
+    .container {
+        border: 2px solid #000;
+        margin: 20px;
+    }
+    .float-left {
+        float: left;
+        width: 100px;
+        height: 100px;
+        background-color: lightblue;
+        margin: 10px;
+    }
+    /* .clear
+    {
+        clear: both;
+    } */
+    /* .container {
+  display: flex; 
+} */
+/* 使用flex布局或者grid */
+
+    
+
+ /* .container::after {
+  content: "";
+  display: table;
+  clear: both;
+}  */
+/* 添加伪类清除浮动元素 */
+
+    /* 高度塌陷解决前的样式 */
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="float-left"></div>
+    <div class="clear"></div> <!-- 清除浮动的元素 -->
+    <!-- 这个容器会因为高度塌陷看起来很窄 -->
+</div>
+
+</body>
+</html>
