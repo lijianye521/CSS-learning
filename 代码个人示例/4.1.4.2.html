@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .ordinal{
+            vertical-align: super; 
+            font-size: smaller;
+        }
+        /* 通过vertical-align设置为上标文本
+        text-top或text-bottom会让当前元素的内容区与付行盒子的内容区顶部或底部对齐，
+        但只有在行内盒子的font-size或line-height与父元素不同时才会有影响。 */
+    </style>
+</head>
+<body>
+    <time datetime="2016-02-23">
+        the 23 <span class="ordinal"> rd</span>of February 2016.
+    </time>
+    
+</body>
+</html>

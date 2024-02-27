@@ -756,3 +756,62 @@ margin-top: 1.5rem;/*24px*/
 
 #### 4.1.4行间距、对齐以及行盒子构造
 
+![image-20240227165132038](./assets/image-20240227165132038.png)
+
+第三章介绍过行内格式化，每行文字都会生成一个**行盒子**，行盒子还可以进一步拆分成表示行内元素的**行内盒子**，或者连接两个行内元素的**匿名行内盒子**。
+
+行内盒子的内容区显示文本，内容区的高度由font-size的测量尺度。
+
+每个行内盒子的底边都默认对齐于靠近底部的水平线，这条线叫做**基线**。内容区也不一定能限制住字形，比如小写字母g，就会向下延伸出内容区。
+
+行高是指行盒子的总高度，也就是**行间距**。排版术语叫做**铅空**。就是排字员用来隔开字符行的铅块。 
+
+计算方法：行盒子的整体行高减去font-size，得到的值再除以2，也就是**半铅空**。比如：line-height：30px，font-size：21px，那么半铅空就是（30-21）/2=4.5px。
+
+**设置行高**
+
+```css
+body
+{
+    font-family:'Georgia Pro ',Georgia, 'Times New Roman', Times, serif;
+    line-height:1.5;
+}
+```
+
+一般来说，行高设置为1.2~1.5之间，短文本一般设置较小的line-height，这里1.5是没有单位的值，意思是font-size的1.5倍。也可以给line-height设置像素值，百分比或者em值。但是要注意body的所有子元素都会继承line-height的计算值。就算body用的是百分比或者是em，其子元素集成的都是**计算后**的值，但是无单位就不会导致这样的结果，因此，如果给line-height设置没有单位的值，那么子元素继承的是一个系数，永远与自己的font-size成比例。
+
+**2.垂直对齐**
+
+除了line-height，行内盒子也受到vertical-align的影响。它的默认值是baseline，即子元素的基线与父元素的基线对齐。
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .ordinal{
+            vertical-align: text-bottom; 
+            font-size: smaller;
+        }
+        /* 通过vertical-align设置为上标文本
+        text-top或text-bottom会让当前元素的内容区与付行盒子的内容区顶部或底部对齐，
+        但只有在行内盒子的font-size或line-height与父元素不同时才会有影响。 */
+    </style>
+</head>
+<body>
+    <time datetime="2016-02-23">
+        the 23 <span class="ordinal"> rd</span>of February 2016.
+    </time>
+    
+</body>
+</html>
+```
+
+行盒子中有一个元素使用vertical-align调整位置可能会扩展行盒子的高度。
+
+#### 4.1.5文本粗细
+
+font-weight关键字，常用的有：narmal、bold、bolder、lighter。normal和bold对应的数值分别为400,700。bolder和lighter的机制略有不同，他们的作用是在继承值的基础上把文本变粗或变细。
