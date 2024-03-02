@@ -815,3 +815,73 @@ body
 #### 4.1.5文本粗细
 
 font-weight关键字，常用的有：narmal、bold、bolder、lighter。normal和bold对应的数值分别为400,700。bolder和lighter的机制略有不同，他们的作用是在继承值的基础上把文本变粗或变细。
+
+#### 4.1.6字体样式
+
+font-style:italic会从字型中选择斜体，前提是存在这个斜体。
+
+#### 4.1.7大小写变换和小型大写变体
+
+```css
+h1 {
+tect-transform:uppercase;
+}
+```
+
+**使用font-variant**
+
+CSS中使用font-variant可以通过值small-caps让英文文本转化为小型大写字母。
+
+#### 4.1.8控制字母的间距
+
+控制词的间距
+
+```css
+p{
+    word-spacing:0.1em;
+}
+```
+
+控制字符间的间距
+
+```css
+p{
+letter-spacing:0.1em;
+}
+```
+
+### 4.2版本宽度、律动和毛边
+
+我们可以将article长度设置为36em，平均每个字符0.5em，并在页面上居中，如果视口缩小到比这个值更窄，该元素会自动调整宽度。
+
+```css
+article{
+   max-width:36em;
+   margin:0 auto;
+}
+```
+
+#### 4.2.1 文本缩进与对齐
+
+默认情况下，文本都是左对齐的，对于连续的段落，我们可以使用相邻组合符设置text-indent属性。
+
+```css
+p+p{
+text-indent:1.25em;
+}
+```
+
+text-align属性是可以接受下列任意一个关键字值：left、right、center和justify。CSS 3还额外规定了几个值、包括start和end。这两个逻辑方向关键字与文本书写模式对应：多数西方语言都是从左向右书写，因此如果文本语言是英语，那么start就代表左对齐，end代表右对齐。而在从右往左书写的语言中，恰好相反，父元素设置了dir=“rtl”属性，即从右向左显示，浏览器通常会自动反转默认的文本方向。
+
+**设置连字符**
+
+```css
+p{
+    hyphens:auto;
+}
+```
+
+![image-20240302191644672](./assets/image-20240302191644672.png)
+
+#### 4.2.3多栏文本
+
